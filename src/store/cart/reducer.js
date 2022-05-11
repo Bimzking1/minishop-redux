@@ -1,11 +1,9 @@
-
-
 const reducer = (state = [], action) => {
     switch (action.type) {
         case 'addCartItem':
             {
                 const newState = [...state]
-                const itemIndex = newState.finfIndex( item => item.id === action.payload.id )
+                const itemIndex = newState.findIndex( item => item.id === action.payload.id )
                 if ( itemIndex < 0 ){
                     newState.push({
                         id: action.payload.id,
@@ -34,7 +32,7 @@ const reducer = (state = [], action) => {
         case 'removeCardItem':
             {
                 const newState = [...state]
-                newState.splice(action.payload.id, 1)
+                newState.splice(action.payload.index, 1)
                 return newState
             }
         default:
