@@ -1,9 +1,29 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 const ShoppingCart = () => {
     
     const cart = useSelector( store => store.cart )
+    const dispatch = useDispatch()
+
+    const minButtonHandler = (id) => {
+        dispatch({
+            type: 'lessCartItem',
+            payload: { id }
+        })
+    }
+    const plusButtonHandler = (id, title, price) => {
+        dispatch({
+            type: 'addCartItem',
+            payload: { id, title, price }
+        })
+    }
+    const removeButtonHandler = (id) => {
+        dispatch({
+            type: 'removeCartItem',
+            payload: { id }
+        })
+    }
 
     return (
         <section>
@@ -27,14 +47,24 @@ const ShoppingCart = () => {
                                                 </div>
                                                 <div>
                                                     <p classname='text-xs'>Item qty</p>
-                                                    <p className='text-md'>{item.count}</p>
+                                                    <div className='flex space-x-3 items-center'>
+                                                        <div>
+                                                            <button onClick={() => minButtonHandler(item.id)}>-</button>
+                                                        </div>
+                                                        <div>
+                                                            <p className='text-md'>{item.count}</p>
+                                                        </div>
+                                                        <div>
+                                                            <button onClick={() => plusButtonHandler(item.id, item.title, item.price)}>+</button>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div>
                                                     <p classname='text-xs'>Subtotal</p>
                                                     <p className='text-md'>$ {item.price * item.count}</p>
                                                 </div>
                                                 <div>
-                                                    <button className='text-red-500'>Remove</button>
+                                                    <button className='text-red-500' onClick={() => removeButtonHandler(item.id)}>Remove</button>
                                                 </div>
                                             </div>
                                         </div>

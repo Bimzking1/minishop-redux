@@ -21,7 +21,7 @@ const reducer = (state = [], action) => {
             {
                 const newState = [...state]
                 const itemIndex = newState.findIndex( item => item.id === action.payload.id )
-                if ( itemIndex[itemIndex].count <= 1 ){
+                if ( newState[itemIndex].count <= 1 ){
                     newState.splice(itemIndex, 1)
                 } else {
                     newState[itemIndex].count -= 1
@@ -29,7 +29,7 @@ const reducer = (state = [], action) => {
                 console.log(newState)
                 return newState
             }
-        case 'removeCardItem':
+        case 'removeCartItem':
             {
                 const newState = [...state]
                 newState.splice(action.payload.index, 1)
