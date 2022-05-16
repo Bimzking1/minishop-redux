@@ -5,6 +5,9 @@ import Product from "./Page/Product";
 import ProductDetail from "./Page/ProductDetail";
 import ShoppingCart from "./Page/ShoppingCart";
 
+import Register from "./Page/Register";
+import Login from "./Page/Login";
+
 function App() {
   return (
     <BrowserRouter>
@@ -12,7 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout/>}>
             <Route index element={<h1>Home</h1>} />
-            <Route path="login" element={<h1>Login</h1>} />
+            <Route path="register" element={<Register/>} />
+            <Route path="login" element={<Login/>} />
             <Route path="products/">
               <Route index element={<Product/>} />
               <Route path=":id" element={<ProductDetail/>} />
