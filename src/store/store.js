@@ -1,14 +1,13 @@
-import { combineReducers, createStore } from 'redux'
-import productReducer from './product/reducer'
-import cartReducer from './cart/reducer'
+import { configureStore } from '@reduxjs/toolkit'
 
-window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+import cartSlice from './cart'
+import userSlice from './user'
 
-const reducers = combineReducers({
-    product: productReducer,
-    cart: cartReducer
+const store = configureStore({
+    reducer: {
+        cart: cartSlice.reducer,
+        user: userSlice.reducer
+    }
 })
-
-const store = createStore(reducers)
 
 export default store
