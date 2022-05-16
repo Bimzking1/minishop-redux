@@ -5,9 +5,9 @@
 3. npm install
 4. npm start
 
-- Note:
-1. Version commit part 1-8 kemungkinan ada beberapa error karena typo. Commit terakhir (Minishop Part 9) sudah clean.
-2. Version commit terakhir ada beberapa bug, seperti halaman products.
+Note:
+- Version commit part 1-8 kemungkinan ada beberapa error karena typo. Commit terakhir (Minishop Part 9) sudah clean.
+- Version commit terakhir ada beberapa bug, seperti halaman products.
 
 Minishop versi video async part 1-9
 - Netlify: https://bimo-minishop.netlify.app/
